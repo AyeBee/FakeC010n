@@ -6,7 +6,12 @@
  */
 
 /*
+  ## 使い方
+  
   1. ソースに BrowserSource を追加
+  2. 追加した BrowserSource のプロパティのURLに, YouTube Live ChatのURLを設定
+  3. 同, CSS に, 当ファイルの内容をコピペ
+  4. OKをクリック
   */
 
 /* TODO: !important地獄を解消したい。 */
