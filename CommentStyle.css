@@ -53,6 +53,7 @@ yt-live-chat-message-input-renderer {
 }
 
 /* Reduce side padding. */
+#author-photo,
 yt-live-chat-text-message-renderer,
 yt-live-chat-legacy-paid-message-renderer {
     padding-left: 4px !important;
@@ -61,6 +62,7 @@ yt-live-chat-legacy-paid-message-renderer {
 
 /* Avatars. */
 yt-img-shadow #img,
+yt-live-chat-paid-sticker-renderer #author-photo,
 yt-live-chat-text-message-renderer #author-photo,
 yt-live-chat-paid-message-renderer #author-photo,
 yt-live-chat-legacy-paid-message-renderer #author-photo {
@@ -68,6 +70,18 @@ yt-live-chat-legacy-paid-message-renderer #author-photo {
     height: 32px !important;
     border-radius: 32px !important;
     margin-right: 1rem !important;
+}
+
+yt-live-chat-paid-sticker-renderer #sticker-container yt-img-shadow #img {
+    width: 72px !important;
+    height: 72px !important;
+}
+yt-live-chat-paid-sticker-renderer div#card.yt-live-chat-paid-sticker-renderer {
+    display: block;
+}
+
+yt-live-chat-paid-sticker-renderer:not([dashboard-money-feed]) #card.yt-live-chat-paid-sticker-renderer {
+    display: block;
 }
 
 /* メンバーバッジ設定 */
@@ -163,6 +177,8 @@ yt-live-chat-paid-message-renderer #purchase-amount,
 yt-live-chat-paid-message-renderer #purchase-amount *,
 yt-live-chat-paid-message-renderer #content,
 yt-live-chat-paid-message-renderer #content *,
+yt-live-chat-paid-sticker-renderer #content,
+yt-live-chat-paid-sticker-renderer #content *,
 yt-live-chat-legacy-paid-message-renderer #event-text,
 yt-live-chat-legacy-paid-message-renderer #event-text *,
 yt-live-chat-legacy-paid-message-renderer #detail-text,
@@ -214,33 +230,38 @@ anim {
     100% { opacity: 1; transform: none;}
 }
 
+/* スパチャの設定 */
 yt-live-chat-text-message-renderer,
+yt-live-chat-paid-sticker-renderer,
 yt-live-chat-legacy-paid-message-renderer {
     animation: anim 200ms;
     animation-fill-mode: both;
+}
+yt-live-chat-text-message-renderer.style-scope.yt-live-chat-item-list-renderer {
+    padding: .5rem 1rem !important;
 }
 
 yt-live-chat-text-message-renderer.style-scope.yt-live-chat-item-list-renderer {
     background: rgba(0, 0, 0, .5);
     border-radius: 12px;
     margin: .25rem;
-    padding: .5rem 1rem !important;
     float: left;
     clear: both;
 }
 
-/* スパチャの設定 */
+yt-live-chat-paid-sticker-renderer.style-scope.yt-live-chat-item-list-renderer,
 yt-live-chat-paid-message-renderer.style-scope.yt-live-chat-item-list-renderer {
     border-radius: 12px;
     margin: .25rem !important;
     padding: 0;
-    float: none;
+    float: left;
     clear: both;
 }
 
-/* スパチャを角マルにする設定 (この設定効いてない?) */
-div#card.yt-live-chat-paid-message-renderer {
-    border-radius: 12px !important;
+yt-live-chat-paid-sticker-renderer:not([dashboard-money-feed]) #card.yt-live-chat-paid-sticker-renderer {
+    padding: .5rem 1rem !important;
+    padding-left: 0;
+    border-radius: 12px;
 }
 
 /* スパチャの上端を丸める */
@@ -251,6 +272,7 @@ div#card.yt-live-chat-paid-message-renderer > #header {
 
 /* スパチャの下端を丸める */
 div#card.yt-live-chat-paid-message-renderer > #content,
+yt-live-chat-paid-sticker-renderer[show-only-header] #header.yt-live-chat-paid-message-renderer,
 yt-live-chat-paid-message-renderer[show-only-header] #header.yt-live-chat-paid-message-renderer {
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
@@ -280,10 +302,15 @@ div#header-content-primary-column.yt-live-chat-paid-message-renderer {
 }
 
 /* スパチャの金額前後に文言追加 */
+yt-live-chat-paid-sticker-renderer span#price-column::before { content: "がスパステ（"; }
 div#purchase-amount::before { content: "がスパチャ（"; }
+span#price-column::after,
 div#purchase-amount::after  { content: "）を送りました。"; }
 
 /* スパチャの金額の設定 */
+span#price-column,
+span#price-column::before,
+div#purchase-amount::after,
 div#purchase-amount,
 div#purchase-amount::before,
 div#purchase-amount::after {
@@ -291,8 +318,23 @@ div#purchase-amount::after {
     text-shadow: 0 1px 1px rgba(0, 0, 0, .35);
 }
 
+yt-live-chat-paid-sticker-renderer:not([dashboard-money-feed]) #card.yt-live-chat-paid-sticker-renderer,
 div#card.yt-live-chat-paid-message-renderer {
     box-shadow: none;
+}
+
+#purchase-amount-chip.yt-live-chat-paid-sticker-renderer {
+    display: inline;
+    padding-right: 0 !important;
+}
+
+#sticker-container.yt-live-chat-paid-sticker-rendere {
+    margin-left: 0;
+}
+
+#content-primary-column > #author-name,
+#price-column.yt-live-chat-paid-sticker-renderer {
+    display: inline;
 }
 
 yt-live-chat-paid-message-renderer div#card.yt-live-chat-paid-message-renderer > div#header.yt-live-chat-paid-message-renderer {
