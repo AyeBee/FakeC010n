@@ -1,13 +1,13 @@
 /*! FakeC010n-CommentStyle.css v1.0.0 | MIT License | github.com/ayebee/FakeC010n */
 
 /*
-  OBS にて YouTube Live 配信する際に, 
+  OBS にて YouTube Live 配信する際に,
   BrowserSource で 画面上に表示するチャットのスタイルをColon:風にするスタイルシートです.
  */
 
 /*
   ## 使い方
-  
+
   1. ソースに BrowserSource を追加
   2. 追加した BrowserSource のプロパティのURLに, YouTube Live ChatのURLを設定
   3. 同, CSS に, 当ファイルの内容をコピペ
@@ -18,7 +18,7 @@
 
 /* 既定の背景色とフォントの設定 */
 body {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(255,255,255,0);
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Sans CJK JP";
 }
 
@@ -218,8 +218,8 @@ yt-live-chat-ticker-sponsor-item-renderer * {
     border-radius: 10px;
 }
 
-yt-live-chat-mode-change-message-renderer, 
-yt-live-chat-viewer-engagement-message-renderer, 
+yt-live-chat-mode-change-message-renderer,
+yt-live-chat-viewer-engagement-message-renderer,
 yt-live-chat-restricted-participation-renderer {
     display: none !important;
 }
@@ -302,10 +302,10 @@ div#header-content-primary-column.yt-live-chat-paid-message-renderer {
 }
 
 /* スパチャの金額前後に文言追加 */
-yt-live-chat-paid-sticker-renderer span#price-column::before { content: "がスパステ（"; }
-div#purchase-amount::before { content: "がスパチャ（"; }
+yt-live-chat-paid-sticker-renderer span#price-column::before { content: "\304c\30b9\30d1\30b9\30c6\ff08"; }
+div#purchase-amount::before { content: "\304c\30b9\30d1\30c1\30e3\ff08"; }
 span#price-column::after,
-div#purchase-amount::after  { content: "）を送りました。"; }
+div#purchase-amount::after  { content: "\ff09\3092\9001\308a\307e\3057\305f\3002"; }
 
 /* スパチャの金額の設定 */
 span#price-column,
