@@ -248,7 +248,7 @@ yt-live-chat-text-message-renderer.style-scope.yt-live-chat-item-list-renderer {
 }
 
 yt-live-chat-text-message-renderer.style-scope.yt-live-chat-item-list-renderer {
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .6);
     border-radius: 12px;
     margin: .25rem;
     float: left;
