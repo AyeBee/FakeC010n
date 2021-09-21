@@ -38,6 +38,11 @@ yt-live-chat-legacy-paid-message-renderer #content {
     overflow: initial !important;
 }
 
+/* コメントを下から表示 */
+#item-offset {
+    height: 100vh !important;
+}
+
 /* スクロールバーを隠す設定 */
 yt-live-chat-item-list-renderer #items {
     overflow: hidden !important;
@@ -46,9 +51,10 @@ yt-live-chat-item-list-renderer #item-scroller{
     overflow: hidden !important;
 }
 
-/* ヘッダとコメント入力欄を隠す設定 */
+/* ヘッダとコメント入力欄とガイドラインを隠す設定 */
 yt-live-chat-header-renderer,
-yt-live-chat-message-input-renderer {
+yt-live-chat-message-input-renderer,
+yt-live-chat-viewer-engagement-message-renderer {
     display: none !important;
 }
 
@@ -242,7 +248,7 @@ yt-live-chat-text-message-renderer.style-scope.yt-live-chat-item-list-renderer {
 }
 
 yt-live-chat-text-message-renderer.style-scope.yt-live-chat-item-list-renderer {
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .6);
     border-radius: 12px;
     margin: .25rem;
     float: left;
