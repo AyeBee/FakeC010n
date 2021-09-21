@@ -7,7 +7,7 @@
 
 /*
   ## 使い方
-
+  
   1. ソースに BrowserSource を追加
   2. 追加した BrowserSource のプロパティのURLに, YouTube Live ChatのURLを設定
   3. 同, CSS に, 当ファイルの内容をコピペ
@@ -54,7 +54,9 @@ yt-live-chat-item-list-renderer #item-scroller{
 /* ヘッダとコメント入力欄とガイドラインを隠す設定 */
 yt-live-chat-header-renderer,
 yt-live-chat-message-input-renderer,
-yt-live-chat-viewer-engagement-message-renderer {
+yt-live-chat-viewer-engagement-message-renderer,
+div#separator,
+iron-pages#panel-pages {
     display: none !important;
 }
 
